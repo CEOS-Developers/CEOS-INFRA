@@ -1,4 +1,4 @@
-# CEOS Backend Terraform Infrastructure
+# CEOS Backend IAC
 
 CEOS 백엔드 AWS 인프라를 Terraform으로 관리합니다.
 
