@@ -2,15 +2,15 @@
 # CEOS Test Environment - Terraform Variables
 # test.ceos-sinchon.com (Testing)
 # ==============================================
-# 이 파일을 terraform.tfvars로 복사하고 값을 입력하세요.
-# cp terraform.tfvars.example terraform.tfvars
+# 이 파일을 test.tfvars로 복사하고 값을 입력하세요.
+# cp test.tfvars.example test.tfvars
 
 # ==============================================
 # 필수 변수 (Required)
 # ==============================================
 
-# CEOS 기수 (예: "20th", "21st")
-generation = "20th"
+# CEOS 기수 (예: "21st", "22nd")
+generation = "21st"
 
 # EC2 AMI ID (Ubuntu 22.04 LTS)
 # AWS Console > EC2 > AMI Catalog에서 확인
