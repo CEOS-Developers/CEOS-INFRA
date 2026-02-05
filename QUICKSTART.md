@@ -58,7 +58,7 @@ terraform apply -var-file="../../generations/21st/dev.tfvars"
 
 ```bash
 terraform output
-terraform output github_secrets
+terraform output -raw ec2_public_ip
 terraform output route53_name_servers
 ```
 
@@ -73,16 +73,21 @@ terraform output route53_name_servers
 
 Settings → Secrets and variables → Actions에서 추가:
 
-| Secret | 값 |
-|--------|-----|
-| `EC2_HOST_DEV` | terraform output에서 확인 |
-| `EC2_KEY_DEV` | `cat ceos-21st-key.pem` |
-| `RDS_HOST_DEV` | terraform output에서 확인 |
-| `RDS_PORT_DEV` | 3306 |
-| `RDS_DATABASE_DEV` | terraform output에서 확인 |
-| `RDS_USERNAME_DEV` | terraform output에서 확인 |
-| `RDS_PASSWORD_DEV` | dev.tfvars의 rds_master_password |
-| `S3_BUCKET_DEV` | terraform output에서 확인 |
+**Dev 환경:**
+
+| Secret | 값                                     |
+|--------|---------------------------------------|
+| `ENV_DEV` | .env 파일 전체 내용 (인수인계 자료 참고)         |
+| `EC2_HOST_DEV` | `terraform output -raw ec2_public_ip` |
+| `EC2_KEY_DEV` | `cat ceos-21st-key.pem`               |
+
+**Test 환경:**
+
+| Secret | 값                                     |
+|--------|---------------------------------------|
+| `ENV_PROD` | .env 파일 전체 내용 (인수인계 자료 참고)            |
+| `EC2_HOST_PROD` | `terraform output -raw ec2_public_ip` |
+| `EC2_KEY_PROD` | `cat ceos-21st-key.pem`               |
 
 ## 7. 배포 확인
 

@@ -126,27 +126,23 @@ Internet → Route 53 → ALB (HTTPS) → EC2 (Docker: App + MySQL + Redis)
 
 ## GitHub Secrets 설정
 
+Backend 레포 Settings → Secrets and variables → Actions에서 설정
+
 ### Dev 환경
 
-| Terraform Output | GitHub Secret |
-|-----------------|---------------|
-| `github_secrets.EC2_HOST_DEV` | `EC2_HOST_DEV` |
-| `github_secrets.RDS_HOST_DEV` | `RDS_HOST_DEV` |
-| `github_secrets.RDS_PORT_DEV` | `RDS_PORT_DEV` |
-| `github_secrets.RDS_DATABASE_DEV` | `RDS_DATABASE_DEV` |
-| `github_secrets.RDS_USERNAME_DEV` | `RDS_USERNAME_DEV` |
-| `github_secrets.S3_BUCKET_DEV` | `S3_BUCKET_DEV` |
-| (수동 입력) | `RDS_PASSWORD_DEV` |
-| (수동 입력) | `EC2_KEY_DEV` |
+| Terraform Output | GitHub Secret | 비고 |
+|-----------------|---------------|------|
+| - | `ENV_DEV` | .env 파일 전체 내용 (인수인계 자료 참고) |
+| `terraform output -raw ec2_public_ip` | `EC2_HOST_DEV` | EC2 Public IP |
+| `cat ceos-21st-key.pem` | `EC2_KEY_DEV` | SSH Private Key (수동) |
 
 ### Test 환경
 
-| Terraform Output | GitHub Secret |
-|-----------------|---------------|
-| `github_secrets.EC2_HOST_TEST` | `EC2_HOST_TEST` |
-| `github_secrets.S3_BUCKET_TEST` | `S3_BUCKET_TEST` |
-| (수동 입력) | `EC2_KEY_TEST` |
-| (수동 입력) | `DB_PASSWORD_TEST` |
+| Terraform Output | GitHub Secret | 비고 |
+|-----------------|---------------|------|
+| - | `ENV_PROD` | .env 파일 전체 내용 (인수인계 자료 참고) |
+| `terraform output -raw ec2_public_ip` | `EC2_HOST_PROD` | EC2 Public IP |
+| `cat ceos-21st-key.pem` | `EC2_KEY_PROD` | SSH Private Key (수동) |
 
 ---
 
