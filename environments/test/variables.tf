@@ -20,7 +20,7 @@ variable "environment" {
 }
 
 variable "generation" {
-  description = "CEOS generation (e.g., 19th, 20th)"
+  description = "CEOS 기수 (예: 20th, 21st)"
   type        = string
 }
 
@@ -70,11 +70,8 @@ variable "ssh_allowed_cidrs" {
   default     = ["0.0.0.0/0"] # 실제 사용 시 특정 IP로 제한 권장
 }
 
-variable "docker_username" {
-  description = "Docker Hub username"
-  type        = string
-}
-
+# ==============================================
+# Docker MySQL Variables (Test 환경만 사용)
 # ==============================================
 # Database Variables (Docker MySQL for Dev)
 # ==============================================

@@ -30,15 +30,12 @@ module "ec2" {
   key_name         = var.ec2_key_name
   root_volume_size = var.ec2_root_volume_size
 
-  # ALB 사용 시 Elastic IP 불필요 (ALB DNS로 접근)
+  # ALB 사용 시 Elastic IP 불필요
   enable_elastic_ip = !var.enable_alb
 
-  # ALB에서만 8080 포트 접근 허용
   ssh_allowed_cidrs = var.ssh_allowed_cidrs
 
-  user_data = templatefile("${path.module}/user-data.sh", {
-    docker_username = var.docker_username
-  })
+  user_data = file("${path.module}/user-data.sh")
 }
 
 # ==============================================

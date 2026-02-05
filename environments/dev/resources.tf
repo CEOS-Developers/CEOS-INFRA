@@ -35,9 +35,7 @@ module "ec2" {
 
   ssh_allowed_cidrs = var.ssh_allowed_cidrs
 
-  user_data = templatefile("${path.module}/user-data.sh", {
-    docker_username = var.docker_username
-  })
+  user_data = file("${path.module}/user-data.sh")
 }
 
 # ==============================================

@@ -20,7 +20,7 @@ variable "environment" {
 }
 
 variable "generation" {
-  description = "CEOS generation (e.g., 19th, 20th)"
+  description = "CEOS 기수 (예: 20th, 21st)"
   type        = string
 }
 
@@ -68,11 +68,6 @@ variable "ssh_allowed_cidrs" {
   description = "CIDR blocks allowed for SSH access"
   type        = list(string)
   default     = ["0.0.0.0/0"]
-}
-
-variable "docker_username" {
-  description = "Docker Hub username"
-  type        = string
 }
 
 # ==============================================

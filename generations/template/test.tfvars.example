@@ -20,9 +20,6 @@ ec2_ami_id = "ami-0c9c942bd7bf113a2"
 # EC2 SSH Key Pair 이름 (AWS Console에서 미리 생성)
 ec2_key_name = "ceos-keypair"
 
-# Docker Hub 계정명
-docker_username = "ceossinchon"
-
 # Docker MySQL 비밀번호 (보안상 반드시 변경!)
 db_password = "CHANGE_THIS_SECURE_PASSWORD"
 
