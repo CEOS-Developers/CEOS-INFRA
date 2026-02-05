@@ -1,0 +1,117 @@
+# ==============================================
+# CEOS Test Environment - Terraform Variables
+# test.ceos-sinchon.com (Testing)
+# ==============================================
+# 이 파일을 terraform.tfvars로 복사하고 값을 입력하세요.
+# cp terraform.tfvars.example terraform.tfvars
+
+# ==============================================
+# 필수 변수 (Required)
+# ==============================================
+
+# CEOS 기수 (예: "20th", "21st")
+generation = "20th"
+
+# EC2 AMI ID (Ubuntu 22.04 LTS)
+# AWS Console > EC2 > AMI Catalog에서 확인
+# ap-northeast-2 기준: ami-0c9c942bd7bf113a2 (Ubuntu 22.04)
+ec2_ami_id = "ami-0c9c942bd7bf113a2"
+
+# EC2 SSH Key Pair 이름 (AWS Console에서 미리 생성)
+ec2_key_name = "ceos-keypair"
+
+# Docker Hub 계정명
+docker_username = "ceossinchon"
+
+# Docker MySQL 비밀번호 (보안상 반드시 변경!)
+db_password = "CHANGE_THIS_SECURE_PASSWORD"
+
+# 도메인 이름
+domain_name = "ceos-sinchon.com"
+
+# ==============================================
+# 선택 변수 (Optional - 기본값 있음)
+# ==============================================
+
+# AWS 리전
+# aws_region = "ap-northeast-2"
+
+# 프로젝트 이름 (리소스 이름 prefix로 사용)
+# project_name = "ceos"
+
+# 환경 이름
+# environment = "dev"
+
+# VPC CIDR
+# vpc_cidr = "10.0.0.0/16"
+
+# EC2 인스턴스 타입 (Docker All-in-One이므로 t3.small 권장)
+# ec2_instance_type = "t3.small"
+
+# EC2 루트 볼륨 크기 (GB) - MySQL 데이터 저장용
+# ec2_root_volume_size = 30
+
+# SSH 허용 CIDR (보안상 특정 IP로 제한 권장)
+# ssh_allowed_cidrs = ["0.0.0.0/0"]
+
+# ==============================================
+# Docker MySQL 설정 (Test 환경은 Docker로 MySQL 실행)
+# ==============================================
+
+# 데이터베이스 사용자명
+# db_username = "ceos"
+
+# 데이터베이스 이름
+# db_name = "ceos_dev"
+
+# ==============================================
+# ALB 설정
+# ==============================================
+
+# ALB 활성화 (HTTPS 사용 시 true)
+# enable_alb = true
+
+# 헬스체크 경로
+# health_check_path = "/actuator/health"
+
+# ==============================================
+# Route53 / DNS 설정
+# ==============================================
+
+# 서브도메인 (test.ceos-sinchon.com)
+# subdomain = "test"
+
+# Route53 Hosted Zone 생성 여부
+# 새 AWS 계정에서는 true, 기존 zone 사용 시 false
+# create_route53_zone = true
+
+# 기존 Route53 Zone ID (create_route53_zone = false 시 필요)
+# route53_zone_id = "Z1234567890ABC"
+
+# 커스텀 CNAME 레코드 (Netlify 등 외부 서비스)
+# custom_cname_records = {
+#   "www" = {
+#     value = "ceos-sinchon.netlify.app"
+#     ttl   = 300
+#   }
+# }
+
+# ==============================================
+# S3 설정
+# ==============================================
+
+# S3 CORS 허용 오리진
+# s3_cors_allowed_origins = ["*"]
+
+# ==============================================
+# SES 설정
+# ==============================================
+
+# SES 이메일 주소 인증 (개별 이메일)
+# ses_email_identities = ["no-reply@ceos-sinchon.com"]
+
+# SES 도메인 인증
+# ses_domain_identity = "ceos-sinchon.com"
+
+# SES DKIM 활성화
+# enable_ses_dkim = false
